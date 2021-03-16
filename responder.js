@@ -13,26 +13,19 @@ const server =
       fake_url = "https://fake.com/path" + req.url
       const url = new URL(fake_url)
       const search_params = url.searchParams
-
-      
       console.log("Queries: " + search_params)
-
-      if (req.method === 'GET' ) {
-       
+      if (req.method === 'GET' ) {       
           console.log("Look for query parameter data: " + search_params.get("data"))
-
           // Process the queries here
           res.statusCode = 200      //code for OK
           res.setHeader('Content-Type', 'text/plain') 
           res.write("You rang?")
           res.end();
-        
       } else {
         console.log("Status 404")
         res.statusCode = 404;
         res.end();
       }
-
     }                           
 )
 
